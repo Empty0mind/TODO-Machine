@@ -1,5 +1,5 @@
 import React from 'react';
-import { TodoCounter } from '../TodoCounter';
+import { TodoCounter, LoadingView } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem/TodoItem';
@@ -29,6 +29,7 @@ function App() {
     saveItem: saveTodos,
     loading,
     error,
+    isLoading,
    } = useLocalStorage('TODOS_V1', [])
 
   const [searchValue, setSearchValue] = React.useState('');
@@ -61,20 +62,17 @@ function App() {
     )
     newTodos.splice(todoIndex, 1) 
     saveTodos(newTodos)
-
-    if(todos.length === 0) {
-      console.log('sarggf');
-
-    }
   }
-
 
   return (
     <>
+      {isLoading ? (<LoadingView />) : (
       <TodoCounter
         completed={completedTodos}
         total={totalTodos}
-      />
+      /> )
+      }
+
       <TodoSearch
         searchValue={searchValue}
         setSearchValue={setSearchValue}

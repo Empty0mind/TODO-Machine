@@ -5,6 +5,7 @@ function useLocalStorage(itemName, initialValue) {
   const [item, setItem] = React.useState(initialValue)
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(true)
 
   
   React.useEffect(() => {
@@ -24,12 +25,13 @@ function useLocalStorage(itemName, initialValue) {
       }
   
       setLoading(false)
+      setIsLoading(false)
       } catch(error) {
         setLoading(false)
         setError(true)
       }
     }, 3000);
-  console.log('saf')
+    // return () => clearTimeout(3000)
   }, [])
 
   const saveItem = (newItem) => {
@@ -44,6 +46,7 @@ function useLocalStorage(itemName, initialValue) {
     saveItem,
     loading,
     error,
+    isLoading
   }
 }
 
