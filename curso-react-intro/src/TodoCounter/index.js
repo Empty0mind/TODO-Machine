@@ -1,7 +1,12 @@
 import React from 'react';
 import './TodoCounter.css';
+import { TodoContext } from '../TodoContext';
 
 function LoadingView() {
+
+  const {
+    isLoading
+  } = React.useContext(TodoContext)
 
   return (
     <h1 className="TodoCounter">
@@ -10,12 +15,16 @@ function LoadingView() {
   )
 }
 
-function TodoCounter({ total, completed }) {
+function TodoCounter() {
 
+  const {
+    completedTodos,
+    totalTodos,
+  } = React.useContext(TodoContext)
 
     return (
       <h1 className="TodoCounter">
-        Has completado <span>{completed}</span> de <span>{total}</span> TODOs
+        Has completado <span>{completedTodos}</span> de <span>{totalTodos}</span> TODOs
       </h1>
   );
 
