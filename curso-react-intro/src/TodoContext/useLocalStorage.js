@@ -30,7 +30,7 @@ function useLocalStorage(itemName, initialValue) {
         setLoading(false)
         setError(true)
       }
-    }, 3000);
+    }, 2000);
     // return () => clearTimeout(3000)
   }, [])
 
