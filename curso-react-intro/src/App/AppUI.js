@@ -21,7 +21,6 @@ function AppUI() {
     deleteTodo,
     searchedTodos,
     completeTodo,
-    todoWindow,
     openModal,
     // setOpenModal
   } = React.useContext(TodoContext)
@@ -58,11 +57,9 @@ function AppUI() {
       </TodoList>
       <CreateTodoButton />
 
-      {CreateTodoButton && todoWindow && <TodoWindow />}
-
       {CreateTodoButton && openModal &&
       <Modal>
-      React portal en funcionamiento
+        <TodoWindow />
       </Modal>
       }
         </>

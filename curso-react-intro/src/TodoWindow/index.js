@@ -4,13 +4,15 @@ import "./TodoWindow.css"
 
 function TodoWindow() {
     return (
-    <div className="main-container">
+    <form onSubmit={(event) => {
+        event.preventDefault()
+    }} className="main-container">
         <div className="box-container">
             <div className="window-text">¡Crea una tarea!</div>
-            <input className="input-container" placeholder=" " />
-            <button className="create-button">Crear</button>
+            <textarea className="input-container" placeholder=" " />
+            <button type="submit"  className="create-button">Crear</button>
         </div>
-    </div>
+    </form>
     )
 }
 
