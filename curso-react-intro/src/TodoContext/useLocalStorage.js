@@ -30,8 +30,9 @@ function useLocalStorage(itemName, initialValue) {
         setLoading(false)
         setError(true)
       }
+      console.log('asdf');
     }, 2000);
-    // return () => clearTimeout(3000)
+// eslint-disable-next-line 
   }, [])
 
   const saveItem = (newItem) => {
