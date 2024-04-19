@@ -19,6 +19,7 @@ function CreateTodoButton() {
           if(!todoWindow && !openModal) {
             setOpenModal(true)
             setTodoWindow(true)
+            document.body.style.overflow = "hidden;"
           } else {
             setOpenModal(false)
             setTodoWindow(false)
